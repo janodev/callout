@@ -1,0 +1,13 @@
+
+#import <Availability.h>
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Logger.h"
+
+#if DEBUG
+    #define safeRelease(x) do { [x release]; if (!getenv("NSZombieEnabled")) x = (id)0xDEADBEEF; } while (0)
+#else
+    #define safeRelease(x) [x release], x = nil
+#endif
+
+
