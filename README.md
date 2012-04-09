@@ -3,7 +3,7 @@
 Based on code by Asynchrony Solutions and several authors.  
 See http://stackoverflow.com/questions/8018841/customize-the-mkannotationview-callout/8019308#8019308
 
-
+![XIB based annotation](https://github.com/j4n0/callout/raw/master/callout/pages/screenshot.png)
 
 ## Strategy
 
