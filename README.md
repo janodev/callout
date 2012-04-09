@@ -9,7 +9,7 @@ See http://stackoverflow.com/questions/8018841/customize-the-mkannotationview-ca
 
 We can't create a XIB backed callout, but we can customize the annotation view. 
 So the trick is to add a second annotation when the first is selected, and make the 2nd annotation view
-look like a callout bubble. Once you do this, you have a completely customizable virtual callout.
+look like a callout bubble. This results in a completely customizable virtual callout.
  
 ![Class diagram](https://github.com/j4n0/callout/raw/master/callout/pages/class-diagram.png)
 
