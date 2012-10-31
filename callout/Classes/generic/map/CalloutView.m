@@ -38,4 +38,10 @@
 }
 
 
+// fixes bug in iOS 6 that displays custom annotations behind map annotations
+- (void)didMoveToSuperview {
+    [super didMoveToSuperview];
+    [self.superview bringSubviewToFront:self];
+}
+
 @end
