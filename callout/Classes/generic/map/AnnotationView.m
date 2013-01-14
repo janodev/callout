@@ -67,7 +67,11 @@
 /** Remove the CalloutAnnotation. */
 - (void)didDeselectAnnotationViewInMap:(MKMapView*) mapView;
 {
-    [mapView removeAnnotation:self.calloutAnnotation];
+    // this may get called with self.calloutAnnotation==nil if you press down on a pin,
+    // then drag your finger/cursor to another annotation (without releasing)
+    if (self.calloutAnnotation){
+        [mapView removeAnnotation:self.calloutAnnotation];
+    }
     self.calloutAnnotation = nil;
 }
 
