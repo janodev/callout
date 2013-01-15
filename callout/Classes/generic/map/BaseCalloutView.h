@@ -24,7 +24,6 @@
 - (void) animateIn;
 - (void) animateInStepTwo;
 - (void) animateInStepThree;
-- (void) setAnnotationAndAdjustMap:(id <MKAnnotation>)annotation;
 - (id)   initWithAnnotation:(id<MKAnnotation>)annotation;
 
 @end

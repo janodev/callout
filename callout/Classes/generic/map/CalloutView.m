@@ -17,16 +17,14 @@
 {
     NSString *identifier = NSStringFromClass([self class]);
     self = [super initWithAnnotation:annotation reuseIdentifier:identifier];
-    if (self!=nil){
-        [[NSBundle mainBundle] loadNibNamed:identifier owner:self options:nil];
+    if (self!=nil){    
+        // prevent the tap and double tap from reaching views underneath
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTouch:)];
+        [self addGestureRecognizer:tapGestureRecognizer];
+        UITapGestureRecognizer *doubletapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTouch:)];
+        doubletapGestureRecognizer.numberOfTapsRequired = 2;
+        [self addGestureRecognizer:doubletapGestureRecognizer];
     }
-    
-    // prevent the tap and double tap from reaching views underneath
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTouch:)];
-    [self addGestureRecognizer:tapGestureRecognizer];
-    UITapGestureRecognizer *doubletapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTouch:)];
-    doubletapGestureRecognizer.numberOfTapsRequired = 2;
-    [self addGestureRecognizer:doubletapGestureRecognizer];
     
     return self;
 }

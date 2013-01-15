@@ -29,13 +29,12 @@
  */
 - (void)mapView:(MKMapView *)aMapView didSelectAnnotationView:(MKAnnotationView *)view 
 {
-    debug(@".");
     // delegate the implementation to the annotation view
     if ([view conformsToProtocol:@protocol(AnnotationViewProtocol)]) {
-        debug(@"%@ conforms", NSStringFromClass([view class]));
+        //debug(@"%@ conforms", NSStringFromClass([view class]));
         [((NSObject<AnnotationViewProtocol>*)view) didSelectAnnotationViewInMap:mapView];
     } else {
-        debug(@"%@ DOES NOT conform", NSStringFromClass([view class]));
+        //debug(@"%@ DOES NOT conform", NSStringFromClass([view class]));
     }
 }
 
@@ -45,7 +44,7 @@
  */
 - (void)mapView:(MKMapView *)aMapView didDeselectAnnotationView:(MKAnnotationView *)view 
 {
-    debug(@"%@", [view class]);
+    //debug(@"%@", [view class]);
     // delegate the implementation to the annotation view
     if ([view conformsToProtocol:@protocol(AnnotationViewProtocol)]) {
         [((NSObject<AnnotationViewProtocol>*)view) didDeselectAnnotationViewInMap:mapView];

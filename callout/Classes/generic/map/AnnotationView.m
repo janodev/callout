@@ -53,25 +53,18 @@
 /** Create and show the CalloutAnnotation that emulates the callout. */
 - (void)didSelectAnnotationViewInMap:(MKMapView*) mapView;
 {
-    // hack that fixes bug in iOS 6 where an animation interrupts other animations
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, .1 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
-        Annotation *annotation = (Annotation*)self.annotation;
-        self.calloutAnnotation = [[CalloutAnnotation alloc] initWithContent:annotation.content];
-        self.calloutAnnotation.parentAnnotationView = self;
-        [mapView addAnnotation:self.calloutAnnotation];
-        [self.calloutAnnotation release];
-    });
+    Annotation *annotation = (Annotation*)self.annotation;
+    self.calloutAnnotation = [[CalloutAnnotation alloc] initWithContent:annotation.content];
+    self.calloutAnnotation.parentAnnotationView = self;
+    [mapView addAnnotation:self.calloutAnnotation];
+    [self.calloutAnnotation release];
 }
 
 
 /** Remove the CalloutAnnotation. */
 - (void)didDeselectAnnotationViewInMap:(MKMapView*) mapView;
 {
-    // this may get called with self.calloutAnnotation==nil if you press down on a pin,
-    // then drag your finger/cursor to another annotation (without releasing)
-    if (self.calloutAnnotation){
-        [mapView removeAnnotation:self.calloutAnnotation];
-    }
+    [mapView removeAnnotation:self.calloutAnnotation];
     self.calloutAnnotation = nil;
 }
 

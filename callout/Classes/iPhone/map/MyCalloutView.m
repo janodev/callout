@@ -10,7 +10,7 @@
 
 
 -(IBAction) handleTouch:(id)sender {
-    debug(@"touch %@", sender);
+    //debug(@"touch %@", sender);
 }
 
 

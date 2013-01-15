@@ -46,24 +46,27 @@
 	if ((self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier])) {
 		self.enabled = NO;
 		self.backgroundColor = [UIColor clearColor];
+        [[NSBundle mainBundle] loadNibNamed:reuseIdentifier owner:self options:nil];
+        [self prepareFrameSize];
+        [self prepareOffset];
+        [self setNeedsDisplay];
 	}
 	return self;
 }
 
 - (void)setAnnotation:(id <MKAnnotation>)annotation {
 	[super setAnnotation:annotation];
-	[self prepareFrameSize];
-	[self prepareOffset];
-	[self setNeedsDisplay];
 }
 
-- (void)setAnnotationAndAdjustMap:(id <MKAnnotation>)annotation {
-	[super setAnnotation:annotation];
-	[self prepareFrameSize];
-	[self prepareOffset];
-	[self adjustMapRegionIfNeeded];
-	[self setNeedsDisplay];
+/*
+ - (void)setAnnotationAndAdjustMap:(id <MKAnnotation>)annotation {
+    [super setAnnotation:annotation];
+    [self prepareFrameSize];
+    [self prepareOffset];
+    [self adjustMapRegionIfNeeded];
+    [self setNeedsDisplay];
 }
+*/
  
 - (void)prepareFrameSize {
 	CGRect frame = self.frame;
