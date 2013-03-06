@@ -19,7 +19,7 @@
 @property (nonatomic, retain) AnnotationView* parentAnnotationView;
 @property (nonatomic, retain) MKMapView* mapView;
 @property (nonatomic, retain) Content* content;
-
+@property (nonatomic, assign) BOOL centerMapWhenSelected;
 
 - (id) initWithContent:(Content*)content;
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A07FA6D16E6E9A100C7FA48 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A07FA6C16E6E9A100C7FA48 /* Default-568h@2x.png */; };
 		3A27FDBF14269B66000D885C /* CalloutAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27FDBE14269B66000D885C /* CalloutAnnotation.m */; };
 		3A533AB714255D94005C9625 /* AnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A533AB614255D94005C9625 /* AnnotationView.m */; };
 		3A533ABC14255E41005C9625 /* emoji-ghost.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A533ABA14255E41005C9625 /* emoji-ghost.png */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A07FA6C16E6E9A100C7FA48 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		3A1CBCAF15331A20000E5015 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		3A27FDBD14269B66000D885C /* CalloutAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutAnnotation.h; sourceTree = "<group>"; };
 		3A27FDBE14269B66000D885C /* CalloutAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutAnnotation.m; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		3A533AB914255E41005C9625 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				3A07FA6C16E6E9A100C7FA48 /* Default-568h@2x.png */,
 				3A533ABA14255E41005C9625 /* emoji-ghost.png */,
 				3A533ABB14255E41005C9625 /* emoji-ghost@2x.png */,
 			);
@@ -285,6 +288,7 @@
 				3A533ABD14255E41005C9625 /* emoji-ghost@2x.png in Resources */,
 				3A9C15FA142688120065D95D /* CalloutView.xib in Resources */,
 				3AF1D555145F62C600E55978 /* MyCalloutView.xib in Resources */,
+				3A07FA6D16E6E9A100C7FA48 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

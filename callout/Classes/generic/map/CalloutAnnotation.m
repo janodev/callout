@@ -2,9 +2,9 @@
 // Several authors. Based on code by Asynchrony Solutions.
 // See http://stackoverflow.com/questions/8018841/customize-the-mkannotationview-callout/8019308#8019308
 
+#import <MapKit/MapKit.h>
 #import "AnnotationView.h"
-#import "CalloutAnnotation.h"
-#import "CalloutView.h"
+
 
 @implementation CalloutAnnotation
 
@@ -13,23 +13,28 @@
 @synthesize content = _content;
 @synthesize coordinate = _coordinate;
 @synthesize calloutView = _calloutView;
+@synthesize centerMapWhenSelected = _centerMapWhenSelected;
 
 
-- (MKAnnotationView*)annotationViewInMap:(MKMapView *)aMapView;
+- (MKAnnotationView*)annotationViewInMap:(MKMapView *)mapView;
 {
     Class calloutViewClass = self.content.calloutView;
     
     // dequeue or create a MKAnnotationView
     if (self.calloutView==nil) {
         NSString *identifier = NSStringFromClass(calloutViewClass);
-        self.calloutView = [(BaseCalloutView*)[aMapView dequeueReusableAnnotationViewWithIdentifier:identifier] retain];
+        self.calloutView = [(BaseCalloutView*)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier] retain];
         if (self.calloutView==nil)
             self.calloutView = [[calloutViewClass alloc] initWithAnnotation:self];
     } else {
         self.calloutView.annotation = self;
     }
     self.calloutView.parentAnnotationView = self.parentAnnotationView;
-    
+
+    if (_centerMapWhenSelected) {
+        [mapView setCenterCoordinate:self.coordinate animated:YES];
+    }
+
     return self.calloutView;
 }
 
@@ -56,7 +61,8 @@
     if (self){
         self.content = content;
         self.coordinate = content.coordinate;
-        self.calloutView = nil;   
+        self.calloutView = nil;
+        self.centerMapWhenSelected = NO;
     }
     return self;
 }
